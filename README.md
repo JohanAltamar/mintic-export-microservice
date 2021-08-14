@@ -8,6 +8,18 @@ Notas para desarrolladores.
 - Dentro de la carpeta del proyecto ejecutar el comando `npm install` para instalar las dependencias.
 - Iniciar el servidor de desarrollo con el comando `npm run dev`.
 
+### Cómo construir y probar el contenedor de Docker?
+
+- En desarrollo: 
+	```
+	docker image build --file Dockerfile.dev --tag export-ms:dev .
+	docker container run --rm --detach --publish 8080:8080 --name export-ms-dev export-ms:dev
+	```
+- En producción: 
+	```
+	docker image build --file Dockerfile --tag export-ms:prod .
+	docker container run --detach --publish 8080:8080 --name export-ms-prod export-ms:prod
+	```
 ### Cómo contribuir al código
 - Crear una rama nueva con los comandos:
 ```
